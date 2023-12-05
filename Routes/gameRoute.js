@@ -1,10 +1,10 @@
 const routes = require('express').Router();
 
 //controllers
-const GameController=require('../Controllers/Game')
+const GameController=require('../Controllers/game')
 
 // middlewares 
-const {validateToken}= require('../Middlewares/Jwt')
+const {validateToken}= require('../Middlewares/jwt')
 
 // routes 
 routes.post('/create',validateToken,GameController.create)

@@ -7,8 +7,8 @@ app.use(express.urlencoded({ extended: true }))
 
 
 // routes
-app.use('/user/', require('./Routes/AuthRoute'))
-app.use('/game/', require('./Routes/GameRoute'))
+app.use('/user/', require('./Routes/authRoute'))
+app.use('/game/', require('./Routes/gameRoute'))
 
 app.use(function(err, req, res, next){
   console.log(err)

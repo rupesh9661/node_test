@@ -1,5 +1,5 @@
 const { sign, verify } = require("jsonwebtoken");
-const jwt_decode = require('jwt-decode');
+const {jwtDecode} = require('jwt-decode');
 const dotEnv = require('dotenv').config()
 const createToken = (user) => {
   let accessToken = '';
@@ -19,13 +19,14 @@ const validateToken = (req, res, next) => {
   else {
     try {
       accessToken = accessToken.slice(7);
-      decodedToken = jwt_decode(accessToken);
       const validToken = verify(accessToken, process.env.App_Secret_Key);
       if (validToken) {
+        decodedToken = jwtDecode(accessToken);
         req.authenticated = true;
         return next();
       }
     } catch (err) {
+      console.log(err)
       res.send({ code: 500, message: "something went wrong", error: err });
     }
   }

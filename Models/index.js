@@ -15,7 +15,7 @@ try {
 }
 
 let models = {};
-models.User = require('./User')(sequelize, DataTypes);
-models.Game= require('./Game')(sequelize, DataTypes);
-sequelize.sync({ force: true });
+models.user = require('./user')(sequelize, DataTypes);
+models.game= require('./game')(sequelize, DataTypes);
+sequelize.sync();
 module.exports = { models, sequelize }

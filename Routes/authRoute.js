@@ -1,10 +1,10 @@
 const routes = require('express').Router();
 
 //controllers
-const authController=require('../Controllers/Auth')
+const authController=require('../Controllers/auth')
 
 // middlewares 
-const {validateToken}= require('../Middlewares/Jwt')
+const {validateToken}= require('../Middlewares/jwt')
 
 // routes 
 routes.post('/register' ,authController.register)
